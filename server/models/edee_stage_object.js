@@ -27,8 +27,8 @@ const EdeeStageObjectModel = sequelizedDb.define(
     objectDate: { type: Sequelize.DATE, field: "objectDate" },
     created: { type: Sequelize.DATE, field: "created" },
     // changed: { type: Sequelize.DATE, field: "changed" },
-
-    url: { type: Sequelize.STRING, field: "url" }
+    url: { type: Sequelize.STRING, field: "url" },
+    edeeStageObjectId: { type: Sequelize.INTEGER, field: "edeeStageObjectId" }
   },
   {
     freezeTableName: false,

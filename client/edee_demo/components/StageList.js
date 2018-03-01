@@ -11,6 +11,7 @@ export default props => {
         <div id={item.id + "div"}>
           <p key={item.id + "url"}>{JSON.parse(item.data).url}</p>
           <p key={item.id + "sourceDataType"}>{item.sourceDataType}</p>
+          <p key={item.id + "stageObjectId"}>{item.stageObjectId}</p>
           <p key={item.id + "data "}>{JSON.parse(item.data).sourceData.name}</p>
         </div>
       ))}

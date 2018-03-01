@@ -11,6 +11,7 @@ const EdeeSourceDataType = require("./edee_source_data_type");
 const EdeeStageModuleMap = require("../../models/edee_stage_module_map");
 const EdeeStageSourceType = require("./edee_stage_source_type");
 const EdeeStageObjectType = require("./edee_stage_object_type");
+const EdeeShortStageType = require("./edee_short_stage_type");
 
 // const CommentService = require('../../services/comment')
 
@@ -23,6 +24,12 @@ const RootQueryType = new GraphQLObjectType({
     //     return req.user
     //   }
     // }
+    edeeShortStage: {
+      type: new GraphQLList(EdeeShortStageType),
+      resolve() {
+        return EdeeStageModuleMap.EdeeShortStage.findAll({});
+      }
+    },
     edeeStageObject: {
       type: new GraphQLList(EdeeStageObjectType),
       resolve() {

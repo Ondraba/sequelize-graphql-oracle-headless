@@ -20,4 +20,12 @@ sequelizedDb
     console.error("Unable to connect to the database:", err);
   });
 
+const models = sequelizedDb.models;
+Object.keys(sequelizedDb.models).forEach(function(modelName) {
+  if ("associate" in sequelizedDb.models[modelName]) {
+    sequelizedDb.models[modelName].associate();
+  }
+});
+sequelizedDb.sync();
+
 module.exports = sequelizedDb;

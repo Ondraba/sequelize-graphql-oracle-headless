@@ -3,8 +3,8 @@ const graphql = require("graphql");
 const GrapQLDateTime = require("./DateType");
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } = graphql;
 
-const EdeeStageObjectType = new GraphQLObjectType({
-  name: "EdeeStageObjectType",
+const EdeeShortStageType = new GraphQLObjectType({
+  name: "EdeeShortStageType",
   fields: () => ({
     id: { type: GraphQLID },
     stageId: { type: GraphQLInt },
@@ -24,8 +24,12 @@ const EdeeStageObjectType = new GraphQLObjectType({
     objectDate: { type: GrapQLDateTime },
     created: { type: GrapQLDateTime },
     // changed: { type: GrapQLDateTime },
-    url: { type: GraphQLString }
+    url: { type: GraphQLString },
+    s_id: { type: GraphQLID },
+    stageObjectId: { type: GraphQLInt },
+    sourceDataType: { type: GraphQLString },
+    data: { type: GraphQLString }
   })
 });
 
-module.exports = EdeeStageObjectType;
+module.exports = EdeeShortStageType;

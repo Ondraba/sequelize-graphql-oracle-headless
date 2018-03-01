@@ -5,12 +5,13 @@ const session = require("express-session");
 const expressGraphQL = require("express-graphql");
 const MongoStore = require("connect-mongo")(session);
 const next = require("next");
+const routes = require("./routes");
 const schema = require("./schema/schema");
 
 const dev = process.env.NODE_ENV !== "production";
 const port = process.env.PORT || 3000;
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const app = next({ dev: process.env.NODE_ENV !== "production" });
+const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
   const server = express();
@@ -58,14 +59,16 @@ app.prepare().then(() => {
   //   app.render(req, res, actualPage, queryParams);
   // });
 
-  server.get("*", (req, res) => {
-    return handle(req, res);
-  });
+  // server.get("*", (req, res) => {
+  //   return handle(req, res);
+  // });
 
-  server.listen(5000, err => {
-    if (err) throw err;
-    console.log("> Ready on port ${port}");
-  });
+  // server.listen(5000, err => {
+  //   if (err) throw err;
+  //   console.log("> Ready on port ${port}");
+  // });
+
+  server.use(handler).listen(5000);
 
   module.exports = server;
 });

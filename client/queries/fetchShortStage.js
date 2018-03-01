@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export default gql`
   {
-    edeeStageObject {
+    edeeShortStage {
       id
       stageId
       objectId
@@ -22,6 +22,10 @@ export default gql`
       created
       url
       stageObjectId
+      s_id
+      stageObjectId
+      sourceDataType
+      data
     }
   }
 `;

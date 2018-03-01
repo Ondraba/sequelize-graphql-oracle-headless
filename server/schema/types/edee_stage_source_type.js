@@ -6,7 +6,7 @@ const EdeeStageSourceType = new GraphQLObjectType({
   name: "EdeeStageSourceType",
   fields: () => ({
     id: { type: GraphQLID },
-    stageObjectId: { type: GraphQLID },
+    stageObjectId: { type: GraphQLInt },
     sourceDataType: { type: GraphQLString },
     data: { type: GraphQLString }
   })

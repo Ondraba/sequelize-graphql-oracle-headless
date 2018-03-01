@@ -6,6 +6,7 @@ export default gql`
       id
       perex
       content
+      stageObjectId
     }
   }
 `;
