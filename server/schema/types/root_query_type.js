@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLList } = graphql;
+const {
+  GraphQLObjectType,
+  GraphQLNonNull,
+  GraphQLID,
+  GraphQLList,
+  GraphQLString
+} = graphql;
 // const UserType = require('./user_type')
 const Game = mongoose.model("game");
 const GameType = require("./game_type");
@@ -12,6 +18,7 @@ const EdeeStageModuleMap = require("../../models/edee_stage_module_map");
 const EdeeStageSourceType = require("./edee_stage_source_type");
 const EdeeStageObjectType = require("./edee_stage_object_type");
 const EdeeShortStageType = require("./edee_short_stage_type");
+const EdeeUrlType = require("./edee_url_type");
 
 // const CommentService = require('../../services/comment')
 
@@ -28,6 +35,15 @@ const RootQueryType = new GraphQLObjectType({
       type: new GraphQLList(EdeeShortStageType),
       resolve() {
         return EdeeStageModuleMap.EdeeShortStage.findAll({});
+      }
+    },
+    edeeShortStageDetail: {
+      type: EdeeShortStageType,
+      args: { url: { type: new GraphQLNonNull(GraphQLString) } },
+      resolve(parentValue, { url }) {
+        return EdeeStageModuleMap.EdeeShortStage.findOne({
+          where: { url: url }
+        });
       }
     },
     edeeStageObject: {

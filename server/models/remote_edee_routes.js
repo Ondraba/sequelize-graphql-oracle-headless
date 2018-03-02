@@ -42,4 +42,4 @@ function pushUrlsToRouter() {
   console.log("Cant stop me now!");
 }
 
-setInterval(pushUrlsToRouter, 300000);
+setInterval(pushUrlsToRouter, 10000);

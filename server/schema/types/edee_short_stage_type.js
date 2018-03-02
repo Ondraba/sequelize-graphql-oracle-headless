@@ -23,7 +23,6 @@ const EdeeShortStageType = new GraphQLObjectType({
     prototype: { type: GraphQLString },
     objectDate: { type: GrapQLDateTime },
     created: { type: GrapQLDateTime },
-    // changed: { type: GrapQLDateTime },
     url: { type: GraphQLString },
     s_id: { type: GraphQLID },
     stageObjectId: { type: GraphQLInt },
