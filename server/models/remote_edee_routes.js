@@ -22,7 +22,19 @@ con.connect(function(err) {
   });
 });
 
-function pushUrlsToRouter() {
+const initDynamicRoutes = () => {
+  for (i = 0; i < routes_list.length; i++) {
+    var remote_edee_url = routes_list[i].url;
+    var remote_edee_prototype = routes_list[i].prototype;
+    routes.add(remote_edee_url, remote_edee_prototype);
+  }
+  // routes_list.map(route => {
+  //   console.log("mapuji");
+  //   routes.add(route.url, route.prototype);
+  // });
+};
+
+const pushUrlsToRouter = () => {
   for (i = 0; i < routes_list.length; i++) {
     var pushable = true;
     var remote_edee_url = routes_list[i].url;
@@ -37,9 +49,18 @@ function pushUrlsToRouter() {
       routes.add(remote_edee_url, remote_edee_prototype);
     }
   }
-  console.log(routes.routes);
-  console.log(routes.routes.length);
-  console.log("Cant stop me now!");
-}
+  // routes_list.map(route => {
+  //   switch (routes.routes.includes(route)) {
+  //     case true:
+  //       routes.add(route.url, route.prototype);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // });
+};
 
-setInterval(pushUrlsToRouter, 10000);
+(() => {
+  initDynamicRoutes();
+  setInterval(pushUrlsToRouter, 100000);
+})();
