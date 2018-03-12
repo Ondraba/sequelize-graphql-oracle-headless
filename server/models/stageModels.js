@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
-const sequelizedDb = require("./edee_mysql");
+const sequelizedDb = require("../services/edeeMysql");
 
-const EdeeStageSourceModel = sequelizedDb.define(
-  "edeeStageSource",
+const StageSourceModel = sequelizedDb.define(
+  "stageSource",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -22,8 +22,8 @@ const EdeeStageSourceModel = sequelizedDb.define(
   }
 );
 
-const EdeeStageObjectModel = sequelizedDb.define(
-  "edeeStageObject",
+const StageObjectModel = sequelizedDb.define(
+  "stageObject",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -58,8 +58,8 @@ const EdeeStageObjectModel = sequelizedDb.define(
   }
 );
 
-const EdeeShortStageModel = sequelizedDb.define(
-  "edeeShortStage",
+const StageModel = sequelizedDb.define(
+  "stage",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -98,15 +98,8 @@ const EdeeShortStageModel = sequelizedDb.define(
   }
 );
 
-const EdeeStageSource = sequelizedDb.models.edeeStageSource;
-const EdeeStageObject = sequelizedDb.models.edeeStageObject;
-const EdeeShortStage = sequelizedDb.models.edeeShortStage;
+const StageSource = sequelizedDb.models.stageSource;
+const StageObject = sequelizedDb.models.stageObject;
+const Stage = sequelizedDb.models.stage;
 
-module.exports = { EdeeStageSource, EdeeStageObject, EdeeShortStage };
-
-// module.exports = EdeeStageObject;
-
-//mysql view SHORT_STAGE
-//CREATE VIEW V_STAGE_SHORT AS
-//select object.* , source.ID as s_id, source.stageObjectId, source.sourceDataType, source.data
-//from STAGE_OBJECT object left join STAGE_SOURCE source on object.id = source.stageObjectId
+module.exports = { StageSourceModel, StageObjectModel, StageModel };

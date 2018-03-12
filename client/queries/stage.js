@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export default gql`
-  query EdeeShortStageDetailQuery($url: String!) {
-    edeeShortStageDetail(url: $url) {
+  {
+    stage {
       id
       stageId
       objectId

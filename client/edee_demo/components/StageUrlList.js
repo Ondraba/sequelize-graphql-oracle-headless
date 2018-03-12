@@ -3,11 +3,11 @@ import { graphql } from "react-apollo";
 import { Link } from "../../../server/routes";
 
 export default props => {
-  const { edeeShortStage } = props.data;
-  return edeeShortStage ? (
+  const { stage } = props.data;
+  return stage ? (
     <div>
       Edee Stage Page List:
-      {edeeShortStage.map((item, index) => (
+      {stage.map((item, index) => (
         <ul>
           <li key={item.id + "url"}>
             <Link route={item.url} to={item.url}>

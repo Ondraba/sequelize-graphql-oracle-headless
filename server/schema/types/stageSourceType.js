@@ -1,9 +1,8 @@
-const mongoose = require("mongoose");
 const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } = graphql;
 
-const EdeeStageSourceType = new GraphQLObjectType({
-  name: "EdeeStageSourceType",
+const StageSourceType = new GraphQLObjectType({
+  name: "StageSourceType",
   fields: () => ({
     id: { type: GraphQLID },
     stageObjectId: { type: GraphQLInt },
@@ -12,4 +11,4 @@ const EdeeStageSourceType = new GraphQLObjectType({
   })
 });
 
-module.exports = EdeeStageSourceType;
+module.exports = StageSourceType;

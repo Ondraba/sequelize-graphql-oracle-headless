@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import StageList from "../components/StageList";
-import fetchEdeeStageSource from "../../queries/fetchEdeeStageSource";
+import StageUrlList from "../components/StageUrlList";
+import stageQuery from "../../queries/stage";
 import gql from "graphql-tag";
 
-const StageContainer = graphql(fetchEdeeStageSource)(StageList);
+const StageContainer = graphql(stageQuery)(StageUrlList);
 
 export default StageContainer;

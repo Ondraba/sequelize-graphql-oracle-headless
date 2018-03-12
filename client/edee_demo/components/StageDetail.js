@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-import fetchEdeeShortStageDetail from "../../queries/fetchEdeeShortStageDetail";
+import stageDetailQuery from "../../queries/stageDetail";
 import gql from "graphql-tag";
 
 const StageDetail = ({ data }) => {
   console.log(data);
   return !data.loading ? (
     <div>
-      <div>Page: {data.edeeShortStageDetail.url}</div>
-      <div>with prototype: {data.edeeShortStageDetail.prototype}</div>
+      <div>Page: {data.stageDetail.url}</div>
+      <div>with prototype: {data.stageDetail.prototype}</div>
       <div>
-        named: <b>{data.edeeShortStageDetail.name}</b>
+        named: <b>{data.stageDetail.name}</b>
       </div>
       <div>
-        with content:{
-          JSON.parse(data.edeeShortStageDetail.data).sourceData.content
-        }
+        with content:{JSON.parse(data.stageDetail.data).sourceData.content}
       </div>
     </div>
   ) : (
@@ -23,7 +21,7 @@ const StageDetail = ({ data }) => {
   );
 };
 
-export default graphql(fetchEdeeShortStageDetail, {
+export default graphql(stageDetailQuery, {
   options: props => {
     return {
       variables: { url: props.url }

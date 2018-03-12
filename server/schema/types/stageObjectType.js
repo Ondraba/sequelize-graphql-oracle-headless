@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
 const graphql = require("graphql");
-const GrapQLDateTime = require("./DateType");
+const GrapQLDateTime = require("./dateType");
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } = graphql;
 
-const EdeeStageObjectType = new GraphQLObjectType({
-  name: "EdeeStageObjectType",
+const StageObjectType = new GraphQLObjectType({
+  name: "StageObjectType",
   fields: () => ({
     id: { type: GraphQLID },
     stageId: { type: GraphQLInt },
@@ -28,4 +27,4 @@ const EdeeStageObjectType = new GraphQLObjectType({
   })
 });
 
-module.exports = EdeeStageObjectType;
+module.exports = StageObjectType;

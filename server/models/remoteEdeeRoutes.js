@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const routes = require("../routes");
 
 const con = mysql.createConnection({
