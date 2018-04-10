@@ -1,5 +1,6 @@
-import Link from "next/link";
 import Head from "next/head";
+// import Bootstrap from "bootstrap/dist/css/bootstrap.css";
+import EdeeLogo from "./EdeeLogo";
 
 export default ({ children, title = "Full Page Template" }) => (
   <div>
@@ -7,8 +8,16 @@ export default ({ children, title = "Full Page Template" }) => (
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"
+      />
     </Head>
-    <header>Full Page Template</header>
+    <header>
+      <EdeeLogo />
+    </header>
     {children}
     <footer>Footer</footer>
   </div>

@@ -62,5 +62,5 @@ const pushUrlsToRouter = () => {
 
 (() => {
   initDynamicRoutes();
-  setInterval(pushUrlsToRouter, 100000);
+  setInterval(pushUrlsToRouter, 10000);
 })();
